@@ -1,0 +1,13 @@
+<h1>Editing Song</h1>
+
+<%= render 'form' %>
+
+<p>
+  <%= link_to @song do %>
+  <span class="glyphicon glyphicon-ok"></span> Show
+   <%end %>
+   &nbsp;
+   <%= link_to songs_path do  %>
+   <span class="glyphicon glyphicon-backward"></span> Back
+   <% end %>
+ </p>

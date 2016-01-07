@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>All Artists</h1>
+
+<p>
+<%= link_to new_artist_path do %>
+  <span class="glyphicon glyphicon-plus"></span> Add New Artist
+<% end %>
+</p>
+
+<div class="row">
+  <% @artists.each do |artist| %>
+  <div class="col-md-6">
+    <div class="well">
+      <h3><%= link_to artist.name, artist %></h3>
+       <p><%= image_tag artist.avatar.url(:thumb) %></p>
+     <p>
+      <% artist.rating.times do %>
+      <span class="glyphicon glyphicon-star" style="color:yellow"></span>
+      <% end %>
+      <% (10-(artist.rating)).times do%>
+      <span class="glyphicon glyphicon-star"></span>
+      <% end %>
+      </p>
+
+
+
+
+      <p>
+        <%= link_to edit_artist_path(artist) do %>
+        <span class="glyphicon glyphicon-pencil"></span> Edit
+         <%end %>
+         &nbsp;
+         <%= link_to artist, method: :delete, data: { confirm: 'Are you sure?' } do  %>
+         <span class="glyphicon glyphicon-trash"></span> Delete
+         <% end %>
+       </p>
+    </div>
+  </div>
+  <% end %>
+</div>

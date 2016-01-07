@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+<%= link_to new_artist_path do %>
+  <span class="glyphicon glyphicon-plus"></span> Add New Artist 
+<% end %>
+</p>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="well">
+    	<h3><%= @artist.name %></h3>
+    	<p><%= image_tag @artist.avatar.url(:medium) %></p>
+    	<p>
+      <% @artist.rating.times do %>
+      <span class="glyphicon glyphicon-star" style="color:yellow"></span>
+      <% end %>
+      <% (10-(@artist.rating)).times do%>
+      <span class="glyphicon glyphicon-star"></span>
+      <% end %>
+      </p>
+    </div>
+	</div>
+</div>
+
+<p>
+  <%= link_to edit_artist_path(@artist) do %>
+  <span class="glyphicon glyphicon-pencil"></span> Edit
+   <%end %>
+   &nbsp;
+   <%= link_to artists_path do  %>
+   <span class="glyphicon glyphicon-backward"></span> Back
+   <% end %>
+ </p>
+
